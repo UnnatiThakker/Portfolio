@@ -828,3 +828,17 @@ body[data-theme="dark"] .text-muted {
     max-width: inherit;
   }
 }
+
+.form-group{
+  margin: 10px 0px;
+}
+
+.input-group-addon{
+  padding: 10px;
+  background-color: lightgray;
+}
+
+.submit-button{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}

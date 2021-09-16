@@ -41,11 +41,11 @@
 		                <h1 class="name">Unnati Raval</h1>
 		                <h2 class="desc">Web App Developer</h2>   
 		                <ul class="social list-inline">
-		                    <li class="list-inline-item"><a href="https://twitter.com/thakkerunnati"><i class="fab fa-twitter"></i></a></li>
-		                    <li class="list-inline-item"><a href="https://www.linkedin.com/in/unnati-raval-b1355192"><i class="fab fa-linkedin-in"></i></a></li>
-		                    <li class="list-inline-item"><a href="https://github.com/UnnatiThakker"><i class="fab fa-github-alt"></i></a></li>    
-		                    <li class="list-inline-item"><a href="https://bitbucket.org/unnatithakker/"><i class="fab fa-bitbucket"></i></a></li>   
-		                    <li class="list-inline-item last-item"><a href="https://medium.com/@unnati.thakker.raval"><i class="fab fa-medium"></i></a></li>                
+		                    <li class="list-inline-item"><a href="https://twitter.com/thakkerunnati" target="_blank"><i class="fab fa-twitter"></i></a></li>
+		                    <li class="list-inline-item"><a href="https://www.linkedin.com/in/unnati-raval-b1355192" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+		                    <li class="list-inline-item"><a href="https://github.com/UnnatiThakker" target="_blank"><i class="fab fa-github-alt"></i></a></li>    
+		                    <li class="list-inline-item"><a href="https://bitbucket.org/unnatithakker/" target="_blank"><i class="fab fa-bitbucket"></i></a></li>   
+		                    <li class="list-inline-item last-item"><a href="https://medium.com/@unnati.thakker.raval" target="_blank"><i class="fab fa-medium"></i></a></li>                
 		                </ul> 
 		            </div><!--//profile-->
 			    </div><!--//col-->
@@ -56,7 +56,7 @@
 							<label class="custom-control-label" for="darkSwitch">Dark Mode</label>
 						</div>
 			        </div><!--//dark-mode-switch-->
-	                <a class="btn btn-cta-primary" href="https://themes.3rdwavemedia.com/" target="_blank"><i class="fas fa-paper-plane"></i> Contact Me</a>        
+	                <a class="btn btn-cta-primary" href="#contact"><i class="fas fa-paper-plane"></i> Contact Me</a>        
 	            </div><!--//col-->
 	        </div><!--//row-->         
         </div><!--//container-->
@@ -137,19 +137,61 @@
                 <section class="github section">
                     <div class="section-inner shadow-sm rounded">
                         <h2 class="heading">My GitHub</h2>
-                        <p>You can embed your GitHub contribution graph calendar using IonicaBizau's <a href="https://github.com/IonicaBizau/github-calendar" target="_blank">GitHub Calendar</a> widget. 
                         
                         <div id="github-graph" class="github-graph">
 
                         </div><!--//github-graph-->
 
-                        <p>You can also embed your GitHub activities using Casey Scarborough's <a href="https://github.com/caseyscarborough/github-activity" target="_blank">GitHub Activity Stream</a> widget.        
-                        <!--//Usage: https://caseyscarborough.com/projects/github-activity/ -->                       
-                        <div id="ghfeed" class="ghfeed">
-                        </div><!--//ghfeed-->
+                        
                         
                     </div><!--//secton-inner-->
                 </section><!--//section-->
+
+                <!-- Contact form -->
+                <section class="section">
+                    <div class="section-inner shadow-sm rounded" id="contact">
+                        <h2 class="heading">Contact Me</h2>
+                       
+                        <div id="error_message" class="text-danger"></div>
+                        <div id="success_message" class="alert alert-success"></div>
+                        <form id="contact-me" action="https://formspree.io/f/mgerdand" method="POST" >
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                            <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-at"></i></div>
+                                            <input type="text" class="form-control" name="email" id="email" placeholder="Email ID">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-envelope-open-text"></i></div>
+                                            <input type="text" class="form-control" name="_subject" id="subject" placeholder="Subject">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <textarea class="form-control" name="message" rows="5" id="message" placeholder="Message"></textarea>
+                                </div>
+                                <input type="hidden" name="_captcha" value="false">
+                            </div>
+
+                            <div class="text-center">
+                                <input type="submit" class="btn btn-cta-secondary submit-button" value="Send" />
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
             </div><!--//primary-->
             <div class="secondary col-lg-4 col-12">
                  <aside class="info aside section">
@@ -159,7 +201,7 @@
                             <ul class="list-unstyled">
                                 <li><i class="fas fa-map-marker-alt"></i><span class="sr-only">Location:</span>Pune, India</li>
                                 <li><i class="fas fa-envelope"></i><span class="sr-only">Email:</span><a href="#">unnati.thakker.raval@gmail.com</a></li>
-                                <li><i class="fas fa-link"></i><span class="sr-only">Website:</span><a href="#">https://www.website.com</a></li>
+                                <li><i class="fas fa-link"></i><span class="sr-only">Website:</span><a href="#">https://unnatithakker.github.io/Portfolio/</a></li>
                             </ul>
                         </div><!--//content-->  
                     </div><!--//section-inner-->                 
@@ -309,11 +351,9 @@
     <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>    
     <script type="text/javascript" src="assets/plugins/vanilla-rss/dist/rss.global.min.js"></script> 
     <script type="text/javascript" src="assets/plugins/dark-mode-switch/dark-mode-switch.min.js"></script> 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <!-- github calendar plugin -->
     <script type="text/javascript" src="assets/plugins/github-calendar/dist/github-calendar.min.js"></script>
-    <!-- github activity plugin -->
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/github-activity/src/github-activity.js"></script>
     <!-- custom js -->
     <script type="text/javascript" src="assets/js/main.js"></script>            
 </body>

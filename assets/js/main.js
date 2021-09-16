@@ -39,10 +39,66 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 	);
 	rss.render();
 
+
+	function validate(event){
+		var name = document.getElementById("name").value;
+		var subject = document.getElementById("subject").value;
+		var email = document.getElementById("email").value;
+		var message = document.getElementById("message").value;
+		var error_message = document.getElementById("error_message");
+		
+		error_message.style.padding = "10px";
+		
+		var text;
+		if(name.length < 5){
+		  text = "Please Enter valid Name";
+		  error_message.innerHTML = text;
+		  return false;
+		}
+		if(subject.length < 5){
+		  text = "Please Enter Correct Subject";
+		  error_message.innerHTML = text;
+		  return false;
+		}
+		if(email.indexOf("@") == -1 || email.length < 6){
+		  text = "Please Enter valid Email";
+		  error_message.innerHTML = text;
+		  return false;
+		}
+		if(message.length <= 50){
+		  text = "Please Enter Message in More Than 50 Characters";
+		  error_message.innerHTML = text;
+		  return false;
+		}
+		if(!error_message.innerHTML){
+			sendEmail(event);
+			return true;
+		}
+	  }
+
+
+	async function sendEmail(event) { 
+		event.preventDefault();
+		var status = document.getElementById("success_message");
+		var errorMsg = document.getElementById("error_message");
+		var data = new FormData(event.target);
+		fetch(event.target.action, {
+			method: form.method,
+			body: data,
+			headers: {
+				'Accept': 'application/json'
+			}
+		}).then(response => {
+			status.innerHTML = "Thank you for contacting me. I will get back to you as soon as possible.";
+			form.reset()
+		}).catch(error => {
+			errorMsg.innerHTML = "Oops! There was a problem submitting your form."
+		});
+	} 
     
+	/* Bind sendEmail event on submit button */
+	var form = document.getElementById("contact-me");
+	form.addEventListener("submit", validate);
+
     /* Github Calendar - https://github.com/IonicaBizau/github-calendar */
     new GitHubCalendar("#github-graph", "UnnatiThakker", { responsive: true });
-    
-    
-    /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
-    GitHubActivity.feed({ username: "mdo", selector: "#ghfeed" });
