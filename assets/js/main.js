@@ -41,39 +41,46 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 
 
 	function validate(event){
+		event.preventDefault();
 		var name = document.getElementById("name").value;
 		var subject = document.getElementById("subject").value;
 		var email = document.getElementById("email").value;
 		var message = document.getElementById("message").value;
 		var error_message = document.getElementById("error_message");
-		
+		var status = document.getElementById("success_message");
+
 		error_message.style.padding = "10px";
+
+		toggleSuccess("hide");
+		toggleError("hide");
 		
 		var text;
 		if(name.length < 5){
 		  text = "Please Enter valid Name";
 		  error_message.innerHTML = text;
+		  toggleError("show");
 		  return false;
 		}
 		if(subject.length < 5){
 		  text = "Please Enter Correct Subject";
 		  error_message.innerHTML = text;
+		  toggleError("show");
 		  return false;
 		}
 		if(email.indexOf("@") == -1 || email.length < 6){
 		  text = "Please Enter valid Email";
 		  error_message.innerHTML = text;
+		  toggleError("show");
 		  return false;
 		}
 		if(message.length <= 50){
 		  text = "Please Enter Message in More Than 50 Characters";
 		  error_message.innerHTML = text;
+		  toggleError("show");
 		  return false;
 		}
-		if(!error_message.innerHTML){
-			sendEmail(event);
-			return true;
-		}
+		sendEmail(event);
+		return true;
 	  }
 
 
@@ -89,12 +96,34 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 				'Accept': 'application/json'
 			}
 		}).then(response => {
+			toggleSuccess("show");
+			toggleError("hide");
 			status.innerHTML = "Thank you for contacting me. I will get back to you as soon as possible.";
 			form.reset()
 		}).catch(error => {
+			toggleSuccess("hide");
+			toggleError("show");
 			errorMsg.innerHTML = "Oops! There was a problem submitting your form."
 		});
 	} 
+
+	function toggleError(flag){
+		var errorMsg = document.getElementById("error_message");
+		if(flag === 'hide'){
+			errorMsg.classList.add("d-none");
+		} else{
+			errorMsg.classList.remove("d-none");
+		}
+	}
+
+	function toggleSuccess(flag){
+		var status = document.getElementById("success_message");
+		if(flag === 'hide'){
+			status.classList.add("d-none");
+		} else{
+			status.classList.remove("d-none");
+		}
+	}
     
 	/* Bind sendEmail event on submit button */
 	var form = document.getElementById("contact-me");

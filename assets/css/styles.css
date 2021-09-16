@@ -842,3 +842,7 @@ body[data-theme="dark"] .text-muted {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+
+textarea{
+  resize: none;
+}
